@@ -6,7 +6,7 @@
 /*   By: mpatel <mpatel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:55:09 by mpatel            #+#    #+#             */
-/*   Updated: 2021/12/14 14:47:41 by mpatel           ###   ########.fr       */
+/*   Updated: 2021/12/14 16:17:53 by mpatel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	julia(t_img *img)
 	double temp;
 	img->iter = 0;
 
-	img->x0 = -0.7;
-	img->y0 = 0.27015;
+	img->x0 = -0.70176;
+	img->y0 = -0.3842;
 	img->new_x = 1.7 * (img->x - img->s_width / 2) / (0.3 *
 				img->s_width);
 	img->new_y = (img->y - img->s_height / 2) / (0.3 *

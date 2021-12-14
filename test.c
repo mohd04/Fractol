@@ -6,7 +6,7 @@
 /*   By: mpatel <mpatel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:34:16 by mpatel            #+#    #+#             */
-/*   Updated: 2021/12/14 15:00:51 by mpatel           ###   ########.fr       */
+/*   Updated: 2021/12/14 16:17:14 by mpatel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	init_fractol(t_img *img)
 {
 	img->s_width = 1000;
 	img->s_height = 1000;
-	img->max_iter = 25;
+	img->max_iter = 100;
 	img->iter = 0;
 	img->color = 0xd7afd7;
 	img->zoom = 1;
@@ -59,7 +59,7 @@ int	main(void)
 			if (tmp == img->max_iter)
 				mlx_pixel_put(data.mlx, data.mlx_win, img->x, img->y, 0x00000000);
 			else
-				mlx_pixel_put(data.mlx, data.mlx_win, img->x, img->y, (img->color * tmp / 10));
+				mlx_pixel_put(data.mlx, data.mlx_win, img->x, img->y, (img->color * tmp / 100));
 			img->x++;
 		}
 		img->y++;
