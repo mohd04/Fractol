@@ -6,7 +6,7 @@
 /*   By: mpatel <mpatel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:22:39 by mpatel            #+#    #+#             */
-/*   Updated: 2021/12/14 12:36:32 by mpatel           ###   ########.fr       */
+/*   Updated: 2021/12/14 14:59:58 by mpatel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,6 @@ typedef struct s_img
 	double	max_iter;
 	int		s_width;
 	int		s_height;
-	double	min_x;
-	double	max_x;
-	double	min_y;
-	double	max_y;
 	double	old_x;
 	double	new_x;
 	double	old_y;
@@ -51,8 +47,6 @@ typedef struct s_img
 	int		y;
 	int		color;
 	double	zoom;
-	double	x2;
-	double	y2;
 	double	x0;
 	double	y0;
 	double	mouse_x;
@@ -70,5 +64,6 @@ int	mandelbrot(t_img *img);
 int	mouse_hook(int mousecode, int x, int y, t_img *img, t_data *data);
 int		keys(int key, t_img *img, t_data *data);
 int	julia(t_img *img);
+int		keys(int key, t_img *img, t_data *data);
 
 #endif
