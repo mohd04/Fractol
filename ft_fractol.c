@@ -6,7 +6,7 @@
 /*   By: mpatel <mpatel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:55:09 by mpatel            #+#    #+#             */
-/*   Updated: 2021/12/17 20:33:03 by mpatel           ###   ########.fr       */
+/*   Updated: 2021/12/18 20:06:25 by mpatel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	mandelbrot(t_img *img)
 {
 	img->iter = 0;
-	img->x0 = (1.70 * (img->x - img->s_width / 2) / (0.365 * img->s_width * img->zoom) + img->move_x);
-	img->y0 = ((img->y - img->s_height / 2) / (0.25 * img->s_height * img->zoom) + img->move_y);
+	img->x0 = (1.70 * (img->x - WIDTH / 2) / (0.365 * WIDTH * img->zoom) + img->move_x);
+	img->y0 = ((img->y - HEIGHT / 2) / (0.25 * HEIGHT * img->zoom) + img->move_y);
 	img->new_x = 0;
 	img->new_y = 0;
 	while (img->iter < img->max_iter && ((img->new_x * img->new_x) + (img->new_y * img->new_y)) < 4)
@@ -35,8 +35,8 @@ int	julia(t_img *img)
 	img->iter = 0;
 	img->x0 = -0.70176;
 	img->y0 = -0.3842;
-	img->new_x = (1.7 * (img->x - img->s_width / 2) / (0.3 * img->s_width * img->zoom) + img->move_x);
-	img->new_y = ((img->y - img->s_height / 2) / (0.3 * img->s_height * img->zoom) + img->move_y);
+	img->new_x = (1.7 * (img->x - WIDTH / 2) / (0.3 * WIDTH * img->zoom) + img->move_x);
+	img->new_y = ((img->y - HEIGHT / 2) / (0.3 * HEIGHT * img->zoom) + img->move_y);
 	while (((img->new_x * img->new_x) + (img->new_y * img->new_y)) < 4 && img->iter < img->max_iter)
 	{
 		img->old_x = img->new_x;
@@ -51,8 +51,8 @@ int	julia(t_img *img)
 // int	flame(t_img *img)
 // {
 // 	img->iter = 0;
-// 	img->x0 = 1.70 * ((img->x - img->s_width / 2) / (0.365 * img->s_width));
-// 	img->y0 = ((img->y - img->s_height / 2) / (0.25 * img->s_height));
+// 	img->x0 = 1.70 * ((img->x - WIDTH / 2) / (0.365 * WIDTH));
+// 	img->y0 = ((img->y - HEIGHT / 2) / (0.25 * HEIGHT));
 // 	img->new_x = 0;
 // 	img->new_y = 0;
 // 	while (((img->new_x * img->new_x) + (img->new_y * img->new_y)) < 4 && img->iter < img->max_iter)
@@ -67,10 +67,11 @@ void	draw(t_all *all)
 	double	tmp;
 
 	tmp = 0;
-	while (all->img.y < all->img.s_height)
+	all->img.y = 0;
+	while (all->img.y < HEIGHT)
 	{
 		all->img.x = 0;
-		while (all->img.x < all->img.s_width)
+		while (all->img.x < WIDTH)
 		{
 			tmp = mandelbrot(&all->img);
 			if (tmp == all->img.max_iter)

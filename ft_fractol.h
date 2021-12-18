@@ -6,7 +6,7 @@
 /*   By: mpatel <mpatel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:22:39 by mpatel            #+#    #+#             */
-/*   Updated: 2021/12/17 20:32:12 by mpatel           ###   ########.fr       */
+/*   Updated: 2021/12/18 18:52:38 by mpatel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,13 @@
 #include <time.h>
 
 //gcc test.c ft_fractol.c hook.c -lmlx -framework OpenGL -framework AppKit -L minilibx_opengl_20191021
-
+#define WIDTH 1000
+#define HEIGHT 1000
 
 typedef struct s_img
 {
 	int		iter;
 	double	max_iter;
-	int		s_width;
-	int		s_height;
 	double	old_x;
 	double	new_x;
 	double	old_y;

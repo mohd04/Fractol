@@ -6,11 +6,12 @@
 /*   By: mpatel <mpatel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 11:37:55 by mpatel            #+#    #+#             */
-/*   Updated: 2021/12/17 20:37:26 by mpatel           ###   ########.fr       */
+/*   Updated: 2021/12/18 21:21:08 by mpatel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
+#include <stdio.h>
 
 // void	ft_zoom(int x, int y, t_img *data)
 // {
@@ -47,12 +48,12 @@ int	zoom(int key, int x, int y, t_img *img)
 	if (key == 4)
 	{
 		img->zoom += 2;
-		img->move_x += 1.5 * (x - img->s_width / 2) / (0.5 * img->zoom * img->s_width);
-		img->move_y += (y - img->s_width / 2) / (0.5 * img->zoom * img->s_height);
+		// img->move_x += 1.5 * (x - WIDTH / 2) / (0.5 * img->zoom * WIDTH);
+		// img->move_y += (y - HEIGHT / 2) / (0.5 * img->zoom * HEIGHT);
 	}
 	if (key == 5)
 	{
-		img->zoom /= 2;
+		img->zoom -= 2;
 	}
 	return (0);
 }
@@ -70,17 +71,17 @@ int		keys(int key, t_all *all)
 		all->img.color = 0xff69b4;
 	if (key == 20)
 		all->img.color = 0xffdab9;
-	if (key == 186)
-		all->img.iter += 10;
-	// else if (key == )
-	// 	img->iter -= 10;
-	// if (key == )
-	// 	img->move_x += 0.05 / img->zoom;
-	// else if (key == )
-	// 	img->move_x -= 0.05 / img->zoom;
-	// else if (key == )
-	// 	img->move_y += 0.05 / img->zoom;
-	// else if (key ==)
-	// 	img->move_y -= 0.05 / img->zoom;
+	if (key == 24)
+		all->img.max_iter += 10;
+	else if (key == 27)
+		all->img.max_iter -= 10;
+	if (key == 124)
+		all->img.move_x += 0.05 / all->img.zoom;
+	else if (key == 123)
+		all->img.move_x -= 0.05 / all->img.zoom;
+	else if (key == 125)
+		all->img.move_y += 0.05 / all->img.zoom;
+	else if (key == 126)
+		all->img.move_y -= 0.05 / all->img.zoom;
 	return (0);
 }
