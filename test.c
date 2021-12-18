@@ -52,7 +52,6 @@ int	main(void)
 	double	tmp = 0;
 
 	// all = (t_all *)malloc(sizeof(all));
-	init_fractol(&all.img);
 	all.img.x = 0;
 	all.img.y = 0;
 	all.data.mlx = mlx_init();
@@ -60,12 +59,11 @@ int	main(void)
 	all.data.img = mlx_new_image(all.data.mlx, all.img.s_width, all.img.s_height);
 	all.data.addr = mlx_get_data_addr(all.data.img, &all.data.bits_per_pixel, &all.data.line_length,
 								&all.data.endian);
-	mlx_string_put(all.data.mlx, all.data.mlx_win, all.img.s_width, all.img.s_height, 0xffffff,
-		"mandelbrot Set");
-	draw(&all);
-	// my_mlx_pixel_put(&all.data, 5, 5, 0x00FF0000);
-	mlx_put_image_to_window(all.data.mlx, all.data.mlx_win, all.data.img, 0, 0);
-	mlx_key_hook(all.data.mlx_win, keys, &all.data);
-	// mlx_hook(all.data.mlx_win, 4, 3, mouse_hook, &all.data);
+	init_fractol(&all.img);
+	// mlx_put_image_to_window(all.data.mlx, all.data.mlx_win, all.data.img, 0, 0);
+	// mlx_key_hook(all.data.mlx_win, keys, &all.data);
+	mlx_hook(all.data.mlx_win, 2, 1, keys, &all.data);
+	mlx_mouse_hook(all.data.mlx_win, zoom, &all.img);
+	mlx_loop_hook(all.data.mlx, &, &all.data);
 	mlx_loop(all.data.mlx);
 }

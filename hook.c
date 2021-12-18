@@ -60,7 +60,10 @@ int	zoom(int key, int x, int y, t_img *img)
 int		keys(int key, t_all *all)
 {
 	if (key == 53)
-		exit(1);
+	{
+		mlx_destroy_image(all->data.mlx, all->data.mlx_win);
+		exit(0);
+	}
 	if (key == 18)
 		all->img.color = 0x00ff00;
 	if (key == 19)
@@ -79,10 +82,5 @@ int		keys(int key, t_all *all)
 	// 	img->move_y += 0.05 / img->zoom;
 	// else if (key ==)
 	// 	img->move_y -= 0.05 / img->zoom;
-	mlx_destroy_image(all->data.mlx, all->data.img);
-	mlx_new_image(all->data.mlx, all->img.s_width, all->img.s_height);
-	mlx_clear_window(all->data.mlx, all->data.mlx_win);
-	init_fractol(&all->img);
-	draw(all);
 	return (0);
 }

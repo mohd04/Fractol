@@ -82,3 +82,10 @@ void	draw(t_all *all)
 		all->img.y++;
 	}
 }
+
+int	loop_mand(t_all *all)
+{
+	draw(all);
+	mlx_put_image_to_window(all->data.mlx, all->data.mlx_win, all->data.img, 0, 0);
+	return (0);
+}

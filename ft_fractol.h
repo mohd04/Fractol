@@ -75,5 +75,7 @@ int	julia(t_img *img);
 void	draw(t_all *all);
 void	init_fractol(t_img *img);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int	loop_mand(t_all *all);
+int	zoom(int key, int x, int y, t_img *img);
 
 #endif
