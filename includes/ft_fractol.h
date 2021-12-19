@@ -6,7 +6,7 @@
 /*   By: mpatel <mpatel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:22:39 by mpatel            #+#    #+#             */
-/*   Updated: 2021/12/19 13:02:53 by mpatel           ###   ########.fr       */
+/*   Updated: 2021/12/19 22:59:24 by mpatel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 typedef struct s_img
 {
-	int		iter;
-	double	max_iter;
+	int		it;
+	double	max;
 	double	old_x;
 	double	new_x;
 	double	old_y;
@@ -80,7 +80,8 @@ int	julia(t_img *img);
 void	draw(t_all *all);
 void	init_fractol(t_img *img);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-int	loop_mand(t_all *all);
+int	loop(t_all *all);
 int	zoom(int key, int x, int y, t_img *img);
+double	ft_atod(char *str);
 
 #endif

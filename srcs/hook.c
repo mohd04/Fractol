@@ -6,18 +6,18 @@
 /*   By: mpatel <mpatel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 11:37:55 by mpatel            #+#    #+#             */
-/*   Updated: 2021/12/19 12:14:25 by mpatel           ###   ########.fr       */
+/*   Updated: 2021/12/19 22:59:24 by mpatel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_fractol.h"
 
-float	ft_atof(char *str)
+double	ft_atod(char *str)
 {
 	int		i;
 	int		s;
-	float	nums;
-	float	n;
+	double	nums;
+	double	n;
 
 	n = 0.1;
 	i = 0;
@@ -60,7 +60,7 @@ int	zoom(int key, int x, int y, t_img *img)
 	return (0);
 }
 
-int		keys(int key, t_all *all)
+int	keys(int key, t_all *all)
 {
 	if (key == 53)
 	{
@@ -74,9 +74,9 @@ int		keys(int key, t_all *all)
 	if (key == 20)
 		all->img.color = 0xffdab9;
 	if (key == 24)
-		all->img.max_iter += 10;
+		all->img.max += 10;
 	else if (key == 27)
-		all->img.max_iter -= 10;
+		all->img.max -= 10;
 	if (key == 123)
 		all->img.move_x += 0.05 / all->img.zoom;
 	else if (key == 124)
@@ -85,7 +85,5 @@ int		keys(int key, t_all *all)
 		all->img.move_y += 0.05 / all->img.zoom;
 	else if (key == 125)
 		all->img.move_y -= 0.05 / all->img.zoom;
-	if (key == 21)
-		init_fractol(&all->img);
 	return (0);
 }
