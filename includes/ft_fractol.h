@@ -6,7 +6,7 @@
 /*   By: mpatel <mpatel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:22:39 by mpatel            #+#    #+#             */
-/*   Updated: 2021/12/18 18:52:38 by mpatel           ###   ########.fr       */
+/*   Updated: 2021/12/19 13:02:53 by mpatel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "./minilibx_opengl_20191021/mlx.h"
-#include "./minilibx_mms_20200219/mlx.h"
+#include "../minilibx_opengl_20191021/mlx.h"
+#include "../minilibx_mms_20200219/mlx.h"
 #include <math.h>
 #include <time.h>
 
@@ -55,10 +55,16 @@ typedef struct s_data
 	int endian;
 }	t_data;
 
+typedef enum
+{
+	MANDELBROT, JULIA
+} mode;
+
 typedef struct s_all
 {
 	t_data	data;
 	t_img	img;
+	mode	fractal;
 }	t_all;
 
 typedef struct s_plane

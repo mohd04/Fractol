@@ -6,11 +6,11 @@
 /*   By: mpatel <mpatel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 16:55:09 by mpatel            #+#    #+#             */
-/*   Updated: 2021/12/18 20:06:25 by mpatel           ###   ########.fr       */
+/*   Updated: 2021/12/19 13:02:29 by mpatel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fractol.h"
+#include "../includes/ft_fractol.h"
 
 int	mandelbrot(t_img *img)
 {
@@ -73,7 +73,10 @@ void	draw(t_all *all)
 		all->img.x = 0;
 		while (all->img.x < WIDTH)
 		{
-			tmp = mandelbrot(&all->img);
+			if (all->fractal == MANDELBROT)
+				tmp = mandelbrot(&all->img);
+			else if (all->fractal == JULIA)
+				tmp = julia(&all->img);
 			if (tmp == all->img.max_iter)
 				my_mlx_pixel_put(&all->data, all->img.x, all->img.y, 0x00000000);
 			else
