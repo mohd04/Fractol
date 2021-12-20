@@ -6,13 +6,13 @@
 #    By: mpatel <mpatel@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 12:00:03 by mpatel            #+#    #+#              #
-#    Updated: 2021/12/19 12:15:28 by mpatel           ###   ########.fr        #
+#    Updated: 2021/12/20 12:25:39 by mpatel           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
-SRCS = srcs/ft_fractol.c srcs/hook.c srcs/main.c
+SRCS = srcs/fractol.c srcs/fractol_2.c srcs/hook.c srcs/main.c srcs/draw.c
 
 INCL = -I ./includes/ft_fractol.h
 OPENGL = ./minilibx_opengl_20191021

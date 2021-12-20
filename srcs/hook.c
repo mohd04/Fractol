@@ -6,23 +6,35 @@
 /*   By: mpatel <mpatel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 11:37:55 by mpatel            #+#    #+#             */
-/*   Updated: 2021/12/19 22:59:24 by mpatel           ###   ########.fr       */
+/*   Updated: 2021/12/20 11:44:52 by mpatel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_fractol.h"
+
+static double	atod_2(char **str, double nums, int *i)
+{
+	double	n;
+
+	n = 0.1;
+	while ((*str)[*i] > 47 && (*str)[*i] < 58)
+	{
+		nums += ((*str)[*i] - '0') * n;
+		n *= 0.1;
+		(*i)++;
+	}
+	return (nums);
+}
 
 double	ft_atod(char *str)
 {
 	int		i;
 	int		s;
 	double	nums;
-	double	n;
 
-	n = 0.1;
 	i = 0;
 	s = 1;
-	nums = 0.0;
+	nums = 0;
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -36,12 +48,7 @@ double	ft_atod(char *str)
 	}
 	if (str[i] == '.')
 		i++;
-	while (str[i] > 47 && str[i] < 58)
-	{
-		nums += (str[i] - '0') * n;
-		n *= 0.1;
-		i++;
-	}
+	nums = atod_2(&str, nums, &i);
 	return (nums);
 }
 
